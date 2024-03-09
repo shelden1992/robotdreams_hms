@@ -1,0 +1,122 @@
+@use "variables" as *;
+@use "colors" as *;
+@use "mixins" as *;
+@import url('https://fonts.cdnfonts.com/css/noto-sans');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-size: $main-font-size;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h1 {
+  font-size: $h1-size;
+  padding: 0 40px;
+}
+
+span {
+  color: $main-text-color;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    position: relative;
+
+    &:not(:last-child):after {
+      content: "";
+      background-color: $dark-gray;
+      border-radius: 10px;
+      width: 80%;
+      height: 3px;
+      position: absolute;
+      top: 120px;
+      left: 40px;
+    }
+
+  }
+}
+
+.container {
+  @include display-flex();
+  height: 100vh;
+  background-color: $main-background-color;
+
+  .inner-container {
+    display: flex;
+    flex-direction: row;
+    min-width: 1224px;
+    min-height: 1024px;
+    max-height: 50%;
+    max-width: 50%;
+    background-color: $white;
+    border-radius: 10px;
+
+    figure {
+      @include display-flex();
+
+      img {
+        border-radius: 50%;
+        height: calc(128px / 1.5);
+        width: calc(128px / 1.5)
+      }
+
+      figcaption {
+        @include display-flex(start, center, column);
+        gap: 10px;
+        padding: 0 20px;
+      }
+    }
+
+    .all-users-section {
+      @include display-flex(start, start, column);
+      min-width: 45%;
+      overflow: scroll;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+    }
+
+    .line {
+      content: "";
+      background-color: $dark-gray;
+      width: 3px;
+    }
+
+    .detail-section {
+      @include display-flex(start, start, column);
+      gap: 20px;
+      min-width: 54%;
+
+      .detail-head-info-description {
+        @include display-flex(null, null);
+        padding: 20px 20px;
+
+        strong {
+          font-size: 25px;
+          color: black;
+        }
+      }
+
+      .detail-main-info-description {
+        @include display-flex(null, null, column);
+        gap: 50px;
+        padding: 0 60px;
+
+        div {
+          @include display-flex(null, space-between);
+
+          span {
+            flex-basis: 50%;
+          }
+        }
+      }
+    }
+  }
+}

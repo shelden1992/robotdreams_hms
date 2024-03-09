@@ -1,0 +1,23 @@
+{
+  "name": "robotdreams_hms",
+  "version": "1.0.0",
+  "description": "Homeworks for the frond-end course from Robotdreams",
+  "main": "index.js",
+  "scripts": {
+    "test": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shelden1992/robotdreams_hms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shelden1992/robotdreams_hms/issues"
+  },
+  "homepage": "https://github.com/shelden1992/robotdreams_hms#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
+    "parcel": "^2.12.0"
+  }
+}
