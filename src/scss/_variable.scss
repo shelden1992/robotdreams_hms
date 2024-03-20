@@ -1,0 +1,16 @@
+@use 'colors' as *;
+
+$main-font-size: 24px;
+$second-font-size: 15px;
+$third-font-size: 12px;
+$font-size-h1: 70px;
+$font-size-h2: 40px;
+$font-size-h3: 35px;
+
+$gapBetweenSpeakers: 30px;
+$max-width-container: 1024px;
+$width-left-container: 220px;
+$margin-left: 20px;
+$gradient: linear-gradient(to right, $light-gray, $background-color);
+
+$border-radius: 20px
