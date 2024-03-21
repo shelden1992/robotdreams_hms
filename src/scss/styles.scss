@@ -1,0 +1,334 @@
+@use "mixins" as *;
+@use "colors" as *;
+@use "variable" as *;
+
+@import url('https://fonts.cdnfonts.com/css/rethink-sans');
+
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  @include font();
+
+}
+
+h2 {
+  @include font($blue, 40px, '' Rethink Sans ', sans-serif, center');
+}
+
+h3 {
+  @include font($dark-blue, 35px, '' Rethink Sans ', sans-serif, center');
+}
+
+strong {
+  font-size: $main-font-size;
+  color: $dark-blue;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  @include displayFlex(center, center, column);
+  @include bgImage($background-color, "/src/image/background.6c3571e0.jpg");
+  backdrop-filter: blur(20px);
+  font-family: 'Arial', sans-serif;
+
+  .container {
+    max-width: $max-width-container;
+    width: 100%;
+
+    header {
+      @include displayFlex(center, space-between, row);
+      padding: 20px;
+
+      nav {
+        ul {
+          li {
+            @include displayFlexDirect(row);
+            gap: 25px;
+            color: $blue;
+            letter-spacing: 2px;
+
+            span:nth-child(2) {
+              position: relative;
+
+              @include pseudoAfter;
+            }
+          }
+        }
+      }
+
+      a {
+        @include button(15px);
+      }
+    }
+
+    .main-inform {
+      padding: 50px 150px;
+
+      ul {
+        @include displayFlex(center, space-between, row);
+
+        li {
+          @include displayFlex(start, space-between, column);
+          gap: 15px;
+          color: $blue;
+          letter-spacing: 1px;
+          font-size: $second-font-size;
+        }
+      }
+    }
+
+    .addition-inform {
+      color: $dark-blue;
+      font-size: $main-font-size;
+      padding: 30px 350px 30px 0;
+      line-height: 1.8;
+    }
+
+    .speakers-inform {
+      @include displayFlex(null, space-between, row);
+
+      .data-left {
+        min-width: $width-left-container;
+        max-width: $width-left-container;
+        padding: 0 21px;
+
+        ul {
+          @include displayFlex(start, space-between, column);
+          gap: 55px;
+
+          li {
+            @include displayFlex(start, space-between, column);
+            gap: 10px;
+            letter-spacing: 1px;
+
+            span {
+              position: relative;
+              font-size: $second-font-size;
+              color: $light-gray;
+
+              @include pseudoAfter($white, 7px, 25%, 10%, -20px, $light-gray);
+
+              &:not(.gradientSpan) {
+                @include pseudoBefore('', $light-gray, 100px, 1px, 63px, 0, -65.5px);
+              }
+
+              @include pseudoBefore('', $light-gray, 54px, 1px, 40px, 0, -42px, $gradient);
+            }
+
+            &:first-child {
+              span {
+                color: $blue;
+                @include pseudoAfter($blue, 7px, 25%, 10%, -20px);
+              }
+            }
+
+          }
+        }
+      }
+
+      .speakers {
+        scrollbar-width: thin;
+        overflow: scroll;
+        height: 750px;
+
+        .speakers-list {
+          @include displayFlex(center, space-between, row, wrap);
+          margin: 0 0 0 $margin-left;
+          gap: $gapBetweenSpeakers;
+
+          li {
+
+            margin: 0 0 20px 0;
+
+            figure {
+              @include displayFlex(start, space-between, column);
+              margin: 0;
+              gap: 35px;
+              width: calc(($max-width-container - $width-left-container - $margin-left - $gapBetweenSpeakers * 2) / 3);
+
+              img {
+                width: 100%;
+                border-radius: $border-radius;
+              }
+
+              figcaption {
+                @include displayFlex(start, start, column, wrap);
+                gap: 10px;
+
+                strong {
+                  color: $black;
+                  font-size: $second-font-size;
+                }
+
+                span {
+                  color: $light-gray;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .second-addition-inform {
+      margin: 30px;
+      padding: 50px 50px;
+      color: $dark-blue;
+      font-size: $main-font-size;
+      text-align: center;
+    }
+
+    .schedule-inform {
+      @include displayFlex(start, space-between, row);
+      gap: 70px;
+
+      div {
+        @include displayFlex(start, center, column);
+        gap: 15px;
+
+        span {
+          color: $dark-blue;
+          font-size: $third-font-size;
+        }
+
+
+        ul {
+          @include displayFlex(center, center, column);
+          background-color: $background-color2;
+          width: 100%;
+          padding: 50px 50px;
+          gap: 55px;
+
+          li {
+            div {
+              @include displayFlex(center, center, column);
+              gap: 10px;
+              text-align:center;
+
+              strong {
+                font-size: $second-font-size;
+                color: $dark-blue;
+              }
+
+              .schedule-inform-time {
+                color: $light-gray;
+                font-size: $third-font-size;
+                position: relative;
+              }
+            }
+
+            &:not(:last-child) {
+              .schedule-inform-time {
+                @include pseudoBefore('', $light-gray, 130px, 1px, 40px, 0, 0, null, $transform: rotate(0deg));
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+    .addition-links {
+      @include displayFlex(center, center, column);
+      padding: 50px 150px;
+      margin: 0 0 50px;
+      gap: 5px;
+
+      ul {
+        @include displayFlex(center, space-between, row, wrap);
+        gap: 40px;
+      }
+    }
+
+    .find-section {
+      @include displayFlex(center, start, row);
+      gap: 30px;
+      border-radius: $border-radius;
+      @include bgImage($background-color, "/src/image/background.6c3571e0.jpg", 100%, 0, 35%);
+      background-blend-mode: multiply;
+      padding: 100px 50px;
+
+
+      div {
+        @include displayFlex(start, start, column);
+        flex-basis: 50%;
+        padding: 0 20px;
+        gap: 20px;
+
+        h3 {
+          margin: 0;
+        }
+
+
+        form {
+          position: relative;
+          width: 400px;
+          border: 15px solid $white;
+          background-color: $white;
+          border-radius: $border-radius;
+
+          input {
+            border: 5px solid $white;
+            width: 60%;
+
+            &::placeholder {
+              opacity: 0.6;
+            }
+
+          }
+
+          a {
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            @include button();
+          }
+        }
+      }
+
+      span {
+        color: $dark-blue;
+        font-size: $second-font-size;
+      }
+
+      .element-with-arrow {
+        position: relative;
+
+        &::after {
+          content: "↓";
+          padding-left: 5px;
+          font-size: $second-font-size;
+          font-weight: bold;
+          position: absolute;
+        }
+      }
+    }
+
+    footer {
+      @include displayFlex(center, space-between, row);
+      padding: 50px 0;
+
+      span {
+        color: $light-gray;
+      }
+    }
+  }
+}
